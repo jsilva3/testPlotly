@@ -13,7 +13,7 @@
     <title>Rochester</title>
   </head>
 
-  <body>
+  <body style="background-color: #000;">
 
     <!-- HEADER -->
 <header class="mui-appbar mui--z1">
@@ -38,26 +38,56 @@
   fluid for all viewport widths.
   -->
     <div id="main_content_wrap" class="outer">
-      <section id="main_content"  style="width:750px;align-content:center;">
-          <div class="mui-panel">
+<ul class="mui-tabs__bar">
+  <li class="mui--is-active"><a data-mui-toggle="tab" data-mui-controls="pane-api-1">Inteactive Graph</a></li>
+  <li><a data-mui-toggle="tab" data-mui-controls="pane-api-2">Survival Rate</a></li>
+  <li><a data-mui-toggle="tab" data-mui-controls="pane-api-3">Shootings Trend</a></li>
+  <li><a data-mui-toggle="tab" data-mui-controls="pane-api-4">Homicide Trend</a></li>
+</ul>
+<div class="mui-tabs__pane mui--is-active" id="pane-api-1">
+            <div class="mui-panel">
             Test text descrition - top
             <div id="tester" style="width:600px;height:250px;"></div>
           </div>
-          <div class="mui-panel">
+</div>
+<div class="mui-tabs__pane" id="pane-api-2">
+           <div class="mui-panel">
             Test text descrition - top
+            <div class="mui--divider-top">
             <img src="images\survival-rate-rochester.png">
-          </div>
+            </div>
+          </div> 
+</div>
+<div class="mui-tabs__pane" id="pane-api-3">
           <div class="mui-panel">
             Test text descrition - top
+            <div class="mui--divider-top">
             <img src="images\shooting-trend-rochester.png">
+            </div>
           </div>
+</div>
+<div class="mui-tabs__pane" id="pane-api-4">
           <div class="mui-panel">
             Test text descrition - top
+            <div class="mui--divider-top">
             <img src="images\homicide-trend-rochester.png">
+            </div>
           </div>
-    </div>
-    </section>
- </div>
+</div>
+<script>
+  var paneIds = ['pane-api-1', 'pane-api-2', 'pane-api-3'],
+      currPos = 0;
+
+  function activateNext() {
+    // increment id
+    currPos = (currPos + 1) % paneIds.length;
+
+    // activate tab
+    mui.tabs.activate(paneIds[currPos]);
+  }
+</script>
+<button class="mui-btn mui-btn--primary" onclick="activateNext();">Next</button>      
+</div>
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">      
